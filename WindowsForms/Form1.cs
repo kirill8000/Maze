@@ -32,6 +32,7 @@ namespace WindowsForms
             if (!stepCheckBox.Checked)
             {
                 picture.Image = await _maze.GetSolveBitmapAsync();
+                solveButton.Enabled = true;
                 return;
             }
             foreach (var bitmap in _maze.GetSolveTrack())
