@@ -32,18 +32,19 @@ namespace WindowsForms
             if (!stepCheckBox.Checked)
             {
                 picture.Image = await _maze.GetSolveBitmapAsync();
-                solveButton.Enabled = true;
-                return;
             }
-            foreach (var bitmap in _maze.GetSolveTrack())
+            else
             {
-                if (!stepCheckBox.Checked)
+                foreach (var bitmap in _maze.GetSolveTrack())
                 {
-                    picture.Image = await _maze.GetSolveBitmapAsync();
-                    break;
+                    if (!stepCheckBox.Checked)
+                    {
+                        picture.Image = await _maze.GetSolveBitmapAsync();
+                        break;
+                    }
+                    picture.Image = bitmap;
+                    await Task.Delay(1000 / trackBar1.Value);
                 }
-                picture.Image = bitmap;
-                await Task.Delay(1000 / trackBar1.Value);
             }
 
             solveButton.Enabled = true;
