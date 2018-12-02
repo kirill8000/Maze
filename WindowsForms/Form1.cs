@@ -50,14 +50,14 @@ namespace WindowsForms
             else
             {
                 foreach (var bitmap in _maze.GetSolveTrack())
-                {
+                { 
                     if (!stepCheckBox.Checked)
                     {
                         picture.Image = await _maze.GetSolveBitmapAsync();
                         break;
                     }
                     picture.Image = bitmap;
-                    await Task.Delay(1000 / trackBar1.Value);
+                    await Task.Delay(250 / trackBar1.Value);
                 }
             }
 

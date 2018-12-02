@@ -99,10 +99,13 @@ namespace WindowsForms
         private List<Cell> GetNeighbors(Cell cell, int delta)
         {
             var neighbors = new List<Cell>();
+            Tuple<int, int> t1 = new Tuple<int, int>(cell.X, cell.Y + delta);
+            Tuple<int, int> t2 = new Tuple<int, int>(cell.X, cell.Y - delta);
+            Tuple<int, int> t3 = new Tuple<int, int>(cell.X + delta, cell.Y);
+            Tuple<int, int> t4 = new Tuple<int, int>(cell.X - delta, cell.Y);
             var a = new[]
             {
-                (cell.X, cell.Y + delta), (cell.X, cell.Y - delta),
-                (cell.X + delta, cell.Y), (cell.X - delta, cell.Y)
+                t1, t2, t3, t4
             };
             foreach (var tuple in a)
             {
@@ -167,7 +170,7 @@ namespace WindowsForms
                             color = Color.Green;
                             break;
                         case CellType.Seek:
-                            color = Color.Blue;
+                            color = Color.MediumBlue;
                             break;
                         default:
                             color = Color.Aqua;
@@ -227,6 +230,7 @@ namespace WindowsForms
                 yield return GenerateSolvedBitmap(current);
             } while (current != _exitCell);
         }
+
 
         private Cell SolveStep(Stack<Cell> stack, Cell current)
         {

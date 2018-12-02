@@ -118,7 +118,7 @@
             this.trackBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.trackBar1.Size = new System.Drawing.Size(166, 45);
             this.trackBar1.TabIndex = 5;
-            this.trackBar1.Value = 1;
+            this.trackBar1.Value = 2;
             // 
             // clearButton
             // 
